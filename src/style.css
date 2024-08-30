@@ -1,0 +1,100 @@
+:root {
+    --bg: #f5f5f5; /* Helles Grau als Hintergrundfarbe */
+    --font-dark: #2c2c2c; /* Rauchiges Schwarz für die Schrift */
+    --font-bright: #fff;
+    --button: #a63a3a; /* Dunkles, elegantes Rot für Buttons und Navbar */
+    --styling: #e74c3c; /* Helles, warmes Rot für Akzente */
+}
+
+.intro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+    background-color: var(--bg);
+}
+body {
+    margin: 0;
+    font-family: 'Roboto', 'Arial', 'sans-serif';
+    background-color: var(--bg);
+    color: var(--font);
+}
+header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section {
+    padding: 100px 20px;
+    text-align: left;
+    margin-top: 60px; /* Adjust to avoid overlap with navbar */
+    max-width: 100%;
+    overflow-x: hidden;
+}
+.section h2 {
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.section p {
+    text-align: left;
+}
+.section.dark {
+    background-color: var(--button);
+    color: var(--font-bright);
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: var(--button);
+    color: var(--styling);
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+p {
+    color: var(--font);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.history-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin-top: 0;
+    margin-left: 10rem;
+}
+
+.history-content .text {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.history-content .image {
+    flex: 1;
+    text-align: right;
+}
+
+.history-content .image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}

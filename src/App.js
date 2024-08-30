@@ -1,23 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
+import './style.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div>
+      <nav className='navbar'>
+          damn
+      </nav>
+      <header className='intro'>
+        <h1>Altstadt Winterthur</h1>
       </header>
+      <section className='section dark history'>
+        <div className="history-content">
+          <div className="text">
+            <h2>Geschichte</h2>
+            <p>wow</p>
+          </div>
+          <div className="image">
+            <img src={logo} alt="Geschichte Bild" />
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
