@@ -78,6 +78,16 @@ header {
 .navbar li {
     margin: 0 15px;
 }
+.navbar a {
+    color: var(--font-bright);
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar a:hover {
+    color: var(--styling);
+  }
 
 p {
     color: var(--font);
@@ -274,6 +284,9 @@ p {
 
 /*Carousel code finished*/
 
+  .content-block h2{
+    margin-bottom: 1rem;
+  }
   
   .video video {
     width: 100%;
