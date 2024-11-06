@@ -13,8 +13,8 @@ Die Webseite zur Altstadt Winterthur soll eine interaktive Plattform für Besuch
 - [Wireframe und Design](#wireframe-und-design)
 - [Zielsetzung](#zielsetzung)
 - [Bild- und Videogalerie](#bild--und-videogalerie)
+- [Zielgruppe](#zielgruppe)
 - [Technische Umsetzung](#technische-umsetzung)
-
 
 ## Funktionen und Inhalte der Webseite
 
@@ -56,6 +56,21 @@ Die Bild- und Videogalerie wird als zentrales Element der Webseite die Highlight
 
 Diese Galerie soll Nutzer dazu einladen, die Vielfalt und den Charme der Altstadt zu entdecken und als Inspirationsquelle für einen Besuch dienen.
 
-## Technische Umsetzung
+### Storyboard
+Eine Standaufnahme beim Eingang im Zeitrafferform
 
+<img width="274" alt="Zeitraffer Zeichnung" src="https://github.com/user-attachments/assets/efefb0da-91bc-44ca-9125-a41fbf3d1d81">
+
+
+## Zielgruppe
+<img width="371" alt="Story" src="https://github.com/user-attachments/assets/096ff94b-cccf-4fbc-9c74-35096696db59">
+
+
+## Technische Umsetzung
 Für die Entwicklung könnte ein Content-Management-System oder ein Framework wie Next.js genutzt werden, um eine schnelle, interaktive und benutzerfreundliche Webseite zu gestalten.
+
+
+
+
+
+
