@@ -1,0 +1,45 @@
+.season-rotation {
+    position: fixed;
+    /* Fixiert das Element relativ zum Viewport */
+    bottom: 20px;
+    /* Abstand von der unteren Seite */
+    right: 20px;
+    /* Abstand von der rechten Seite */
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Halbtransparent */
+    border: 2px solid #ccc;
+    /* Optionaler Rand */
+    border-radius: 50%;
+    /* Kreisförmig */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Schatteneffekt */
+    cursor: pointer;
+    z-index: 1000;
+    /* Immer oben sichtbar */
+}
+
+.season-rotation:hover {
+    background-color: rgba(255, 255, 255, 1);
+    /* Opaker beim Hover */
+}
+
+.rotation-button {
+    background: none;
+    border: none;
+    font-size: 30px;
+    /* Größe des Icons */
+    color: #333;
+    /* Farbe des Icons */
+    cursor: pointer;
+}
+
+.season-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,31 +1,75 @@
 :root {
-    --bg: #fdffe6; /* Helles Grau als Hintergrundfarbe */
-    --font-dark: #2c2c2c; /* Rauchiges Schwarz für die Schrift */
-    --font-bright: #fff;
-    --button: #a63a3a; /* Dunkles, elegantes Rot für Buttons und Navbar */
-    --styling: #e74c3c; /* Helles, warmes Rot für Akzente */
+    /* Frühling */
+    --spring-bg: #e0ffe6;
+    /* Frisches Grün für Hintergrund */
+    --spring-font-dark: #3b5323;
+    /* Dunkelgrün für die Schrift */
+    --spring-font-bright: #ffffff;
+    /* Helles Weiß für Kontraste */
+    --spring-bg-dark: #4caf50;
+    /* Lebendiges Grün für Buttons */
+    --spring-styling: #81c784;
+    /* Sanftes Grün für Akzente */
+
+    /*Sommer*/
+    --summer-bg: #fdffe6;
+    --summer-font-dark: #2c2c2c;
+    /* Rauchiges Schwarz für die Schrift */
+    --summer-font-bright: #ffffff;
+    --summer-bg-dark: #a63a3a;
+    /* Dunkles, elegantes Rot für Buttons und Navbar */
+    --summer-styling: #e74c3c;
+    /* Helles, warmes Rot für Akzente */
+
+    /*Herbst*/
+    --autumn-bg: #ffedd5;
+    /* Sanftes Orange für Hintergrund */
+    --autumn-font-dark: #4b3621;
+    /* Tiefbraun für die Schrift */
+    --autumn-font-bright: #ffffff;
+    /* Helles Weiß für Kontraste */
+    --autumn-bg-dark: #b5651d;
+    /* Sattes, herbstliches Orange für Buttons */
+    --autumn-styling: #d2691e;
+    /* Warmer, erdiger Akzentton */
+
+    /*Winter*/
+    --winter-bg: #e6f2ff;
+    /* Klares, kühles Blau für Hintergrund */
+    --winter-font-dark: #2c3e50;
+    /* Dunkelblau für die Schrift */
+    --winter-font-bright: #ffffff;
+    /* Helles Weiß für Kontraste */
+    --winter-bg-dark: #2980b9;
+    /* Tiefes Blau für Buttons */
+    --winter-styling: #3498db;
+    /* Helles Blau für Akzente */
 }
 
 .intro {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 85vh;
-    background-image: url('./galerie/wallpaper-gif-9.gif'); /* Pfad zu deinem GIF */
+    height: 75vh;
+    background-image: url('./galerie/wallpaper-gif-9.gif');
+    /* Pfad zu deinem GIF */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: var(--bg);
-    
+    background-color: var(--bg-color);
+    margin-bottom: 0;
+
 }
+
 body {
     margin: 0;
     padding: 0;
     height: 100%;
     font-family: 'Roboto', 'Arial', 'sans-serif';
-    background-color: var(--button);
-    color: var(--font);
+    background-color: var(--bg-dark-color);
+    color: var(--font-bright-color);
 }
+
 header {
     text-align: center;
     margin-bottom: 50px;
@@ -34,24 +78,31 @@ header {
 .section {
     padding: 100px 20px;
     text-align: left;
-    margin-top: 0; /* Adjust to avoid overlap with navbar */
+    margin-top: 0;
+    /* Adjust to avoid overlap with navbar */
     max-width: 100%;
-    
+
     overflow-x: hidden;
-    background-color: var(--bg);
-    color: var(--font-dark);
+    background-color: var(--bg-color);
+    color: var(--font-dark-color);
+    transition: background-color 0.3s ease;
 }
+
 .section h2 {
     text-align: left;
     max-width: 600px;
     margin: 0 auto;
 }
+
 .section p {
     text-align: left;
+
 }
+
 .section.dark {
-    background-color: var(--button);
-    color: var(--font-bright);
+    background-color: var(--bg-dark-color);
+    color: var(--font-bright-color);
+    transition: background-color 0.4s ease;
 }
 
 
@@ -59,8 +110,8 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: var(--button);
-    color: var(--styling);
+    background-color: var(--bg-dark-color);
+    color: var(--font-bright-color);
     display: flex;
     justify-content: center;
     padding: 10px 0;
@@ -78,22 +129,56 @@ header {
 .navbar li {
     margin: 0 15px;
 }
+
 .navbar a {
-    color: var(--font-bright);
+    color: var(--font-bright-color);
     text-decoration: none;
     font-size: 18px;
     transition: color 0.3s ease;
-  }
-  
-  .navbar a:hover {
-    color: var(--styling);
-  }
+}
+
+.navbar a:hover {
+    color: var(--styling-color);
+}
 
 p {
-    color: var(--font);
+    color: var(--font-bright-color);
     max-width: 600px;
     margin: 0 auto;
 }
+
+.spring-bg {
+    --bg-color: var(--spring-bg);
+    --bg-dark-color: var(--spring-bg-dark);
+    --font-dark-color: var(--spring-font-dark);
+    --font-bright-color: var(--spring-font-bright);
+    --styling-color: var(--spring-styling);
+}
+
+.summer-bg {
+    --bg-color: var(--summer-bg);
+    --bg-dark-color: var(--summer-bg-dark);
+    --font-dark-color: var(--summer-font-dark);
+    --font-bright-color: var(--summer-font-bright);
+    --styling-color: var(--summer-styling);
+}
+
+.autumn-bg {
+    --bg-color: var(--autumn-bg);
+    --bg-dark-color: var(--autumn-bg-dark);
+    --font-dark-color: var(--autumn-font-dark);
+    --font-bright-color: var(--autumn-font-bright);
+    --styling-color: var(--autumn-styling);
+}
+
+.winter-bg {
+    --bg-color: var(--winter-bg);
+    --bg-dark-color: var(--winter-bg-dark);
+    --font-dark-color: var(--winter-font-dark);
+    --font-bright-color: var(--winter-font-bright);
+    --styling-color: var(--winter-styling);
+}
+
 
 .history-content {
     display: flex;
@@ -122,189 +207,199 @@ p {
 
 .grid-container {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Zwei Spalten, gleichmäßig aufgeteilt */
-    gap: 10px; /* Abstand zwischen den Spalten */
-    align-items: center; /* Zentriere den Inhalt vertikal */
-    max-width: 1200px; /* Optional: Begrenze die Breite */
-    margin: 0 auto; /* Zentriere den Container horizontal */
-  }
-  
-  .grid-item.image img {
+    grid-template-columns: 1fr 1fr;
+    /* Zwei Spalten, gleichmäßig aufgeteilt */
+    gap: 10px;
+    /* Abstand zwischen den Spalten */
+    align-items: center;
+    /* Zentriere den Inhalt vertikal */
+    max-width: 1200px;
+    /* Optional: Begrenze die Breite */
+    margin: 0 auto;
+    /* Zentriere den Container horizontal */
+}
+
+.grid-item.image img {
     max-width: 75%;
     height: auto;
     border-radius: 8px;
     max-height: 75%;
     margin-left: 5rem;
     justify-content: center;
-  }
-  
-  .grid-item.text {
+}
+
+.grid-item.text {
     text-align: center;
-  }
-  
-  .grid-item.text h3 {
+    color: var(--font-dark-color);
+}
+
+.grid-item.text h3 {
     margin-bottom: 10px;
-  }
-  
-  .grid-item.text p {
+    color: var(--font-dark-color);
+}
+
+.grid-item.text p {
     margin: 0;
     text-align: center;
-  }
-  
-  /*Carousel code start*/
-  .carousel {
+    color: var(--font-dark-color);
+}
+
+/*Carousel code start*/
+.carousel {
     margin-left: 15%;
     margin-right: 15%;
-  }
+}
 
-  ul.slides {
-      display: block;
-      position: relative;
-      height: 600px;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      list-style: none;
-  }
+ul.slides {
+    display: block;
+    position: relative;
+    height: 600px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    list-style: none;
+}
 
-  .slides * {
-      user-select: none;
-      -ms-user-select: none;
-      -moz-user-select: none;
-      -khtml-user-select: none;
-      -webkit-user-select: none;
-      -webkit-touch-callout: none;
-  }
+.slides * {
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
 
-  ul.slides input {
-      display: none; 
-  }
+ul.slides input {
+    display: none;
+}
 
 
-  .slide-container { 
-      display: block; 
-  }
+.slide-container {
+    display: block;
+}
 
-  .slide-image {
-      display: block;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      opacity: 0;
-      transition: all .7s ease-in-out;
-  }   
+.slide-image {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    opacity: 0;
+    transition: all .7s ease-in-out;
+}
 
-  .slide-image img {
-      width: auto;
-      min-width: 100%;
-      height: 100%;
-  }
+.slide-image img {
+    width: auto;
+    min-width: 100%;
+    height: 100%;
+}
 
-  .carousel-controls {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 999;
-      font-size: 100px;
-      line-height: 600px;
-      color: #fff;
-  }
+.carousel-controls {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    font-size: 100px;
+    line-height: 600px;
+    color: #fff;
+}
 
-  .carousel-controls label {
-      display: none;
-      position: absolute;
-      padding: 0 20px;
-      opacity: 0;
-      transition: opacity .2s;
-      cursor: pointer;
-  }
+.carousel-controls label {
+    display: none;
+    position: absolute;
+    padding: 0 20px;
+    opacity: 0;
+    transition: opacity .2s;
+    cursor: pointer;
+}
 
-  .slide-image:hover + .carousel-controls label{
-      opacity: 0.5;
-  }
+.slide-image:hover+.carousel-controls label {
+    opacity: 0.5;
+}
 
-  .carousel-controls label:hover {
-      opacity: 1;
-  }
-
-  .carousel-controls .prev-slide {
-      width: 49%;
-      text-align: left;
-      left: 0;
-  }
-
-  .carousel-controls .next-slide {
-      width: 49%;
-      text-align: right;
-      right: 0;
-  }
-
-  .carousel-dots {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 20px;
-      z-index: 999;
-      text-align: center;
-  }
-
-  .carousel-dots .carousel-dot {
-      display: inline-block;
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      background-color: #fff;
-      opacity: 0.5;
-      margin: 10px;
-  }
-
-  input:checked + .slide-container .slide-image {
-      opacity: 1;
-      transform: scale(1);
-      transition: opacity 1s ease-in-out;
-  }
-
-  input:checked + .slide-container .carousel-controls label {
-      display: block; 
-  }
-
-  input#img-1:checked ~ .carousel-dots label#img-dot-1,
-  input#img-2:checked ~ .carousel-dots label#img-dot-2,
-  input#img-3:checked ~ .carousel-dots label#img-dot-3,
-  input#img-4:checked ~ .carousel-dots label#img-dot-4,
-  input#img-5:checked ~ .carousel-dots label#img-dot-5,
-  input#img-6:checked ~ .carousel-dots label#img-dot-6 {
+.carousel-controls label:hover {
     opacity: 1;
-  }
+}
+
+.carousel-controls .prev-slide {
+    width: 49%;
+    text-align: left;
+    left: 0;
+}
+
+.carousel-controls .next-slide {
+    width: 49%;
+    text-align: right;
+    right: 0;
+}
+
+.carousel-dots {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    z-index: 999;
+    text-align: center;
+}
+
+.carousel-dots .carousel-dot {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: 0.5;
+    margin: 10px;
+}
+
+input:checked+.slide-container .slide-image {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 1s ease-in-out;
+}
+
+input:checked+.slide-container .carousel-controls label {
+    display: block;
+}
+
+input#img-1:checked~.carousel-dots label#img-dot-1,
+input#img-2:checked~.carousel-dots label#img-dot-2,
+input#img-3:checked~.carousel-dots label#img-dot-3,
+input#img-4:checked~.carousel-dots label#img-dot-4,
+input#img-5:checked~.carousel-dots label#img-dot-5,
+input#img-6:checked~.carousel-dots label#img-dot-6 {
+    opacity: 1;
+}
 
 
-  input:checked + .slide-container .nav label { display: block; }
+input:checked+.slide-container .nav label {
+    display: block;
+}
 
 /*Carousel code finished*/
 
-  .content-block h2{
+.content-block h2 {
     margin-bottom: 1rem;
-  }
-  
-  .video video {
+}
+
+.video video {
     width: 100%;
     max-width: 600px;
     height: auto;
     display: block;
     margin: 0 auto;
-  }
-  
-  .map iframe {
+}
+
+.map iframe {
     width: 100%;
     max-width: 600px;
     height: 450px;
     border: none;
-  }
-  
-  .description {
+}
+
+.description {
     text-align: left;
     max-width: 600px;
     margin: 0 auto;
-  }
+}

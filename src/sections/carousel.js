@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import AltstadtAir from './galerie/altstadt_air.jpg';
-import AltstadtNight from './galerie/altstadt_Night.jpg';
-import AltstadtAlt from './galerie/altstadt_alt.jpg';
+import AltstadtAir from '../galerie/altstadt_air.jpg';
+import AltstadtNight from '../galerie/altstadt_Night.jpg';
+import AltstadtAlt from '../galerie/altstadt_alt.jpg';
 
 function Carousel() {
   const [currentSlide, setCurrentSlide] = useState(1);
@@ -19,13 +19,13 @@ function Carousel() {
     }
   }, [isManual, totalSlides]);
 
-  
+
   useEffect(() => {
-    if(isManual) {
-        const timer = setInterval(() => {
-            setIsManual(false)
-        }, 1000);
-        return () => clearInterval(timer)
+    if (isManual) {
+      const timer = setInterval(() => {
+        setIsManual(false)
+      }, 1000);
+      return () => clearInterval(timer)
     }
   }, [isManual])
 
