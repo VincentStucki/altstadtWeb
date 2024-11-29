@@ -65,7 +65,7 @@ function App() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Orte />
+          <Orte season={season} />
         </motion.div>
       </section>
 

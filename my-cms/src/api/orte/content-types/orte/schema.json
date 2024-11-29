@@ -34,8 +34,8 @@
       "enum": [
         "spring",
         "summer",
-        "autumn",
-        "winter"
+        "winter",
+        "autumn"
       ]
     },
     "ortId": {

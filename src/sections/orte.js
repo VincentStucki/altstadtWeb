@@ -28,65 +28,76 @@ function Orte({ season }) {
         loadOrte();
     }, []);
 
+    const renderOrt = (ort) => {
+        if (parseInt(ort.ortId) % 2 === 1) {
+
+            return (
+
+                <div key={ort.id} className={`grid-container ${season}-bg`}>
+                    {/* Zugriff auf Attributes */}
+                    <div className={`grid-item image ${season}-bg`}>
+                        {/* Bild rendern */}
+                        {ort.image && ort.image.length > 0 && (
+                            <img
+                                src={`http://localhost:1337${ort.image[0].url}`} // Zugriff auf das erste Bild im Array
+                                alt={ort.name}
+                                style={{ width: '100%', height: 'auto' }}
+                            />
+                        )}
+                    </div>
+                    <div className={`grid-item text ${season}-bg`}>
+                        <h3>{ort.name}</h3>
+
+                        {/* Beschreibung rendern */}
+                        {ort.description && Array.isArray(ort.description) && (
+                            <p>
+                                {ort.description
+                                    .map((desc) => desc.children.map((child) => child.text).join(' '))
+                                    .join(' ')}
+                            </p>
+                        )}
+                    </div>
+                </div>
+            )
+        }
+        else if (parseInt(ort.ortId) % 2 === 0) {
+            return (
+                <div key={ort.id} className={`grid-container ${season}-bg`}>
+                    {/* Zugriff auf Attributes */}
+                    <div className={`grid-item text ${season}-bg`}>
+                        <h3>{ort.name}</h3>
+
+                        {/* Beschreibung rendern */}
+                        {ort.description && Array.isArray(ort.description) && (
+                            <p>
+                                {ort.description
+                                    .map((desc) => desc.children.map((child) => child.text).join(' '))
+                                    .join(' ')}
+                            </p>
+                        )}
+                    </div>
+                    <div className={`grid-item image ${season}-bg`}>
+                        {/* Bild rendern */}
+                        {ort.image && ort.image.length > 0 && (
+                            <img
+                                src={`http://localhost:1337${ort.image[0].url}`} // Zugriff auf das erste Bild im Array
+                                alt={ort.name}
+                                style={{ width: '100%', height: 'auto' }}
+                            />
+                        )}
+                    </div>
+                </div>
+            )
+        }
+    }
 
 
     return (
         <>
-            {orte.filter((ort) => String(ort.ortId) === "2").map((ort) => (
-                <div key={ort.id} className={`grid-container ${season}-bg`}>
-                    {/* Zugriff auf Attributes */}
-                    <div className={`grid-item image ${season}-bg`}>
-                        {/* Bild rendern */}
-                        {ort.image && ort.image.length > 0 && (
-                            <img
-                                src={`http://localhost:1337${ort.image[0].url}`} // Zugriff auf das erste Bild im Array
-                                alt={ort.name}
-                                style={{ width: '100%', height: 'auto' }}
-                            />
-                        )}
-                    </div>
-                    <div className={`grid-item text ${season}-bg`}>
-                        <h3>{ort.name}</h3>
-
-                        {/* Beschreibung rendern */}
-                        {ort.description && Array.isArray(ort.description) && (
-                            <p>
-                                {ort.description
-                                    .map((desc) => desc.children.map((child) => child.text).join(' '))
-                                    .join(' ')}
-                            </p>
-                        )}
-                    </div>
-                </div>
-            ))}
-
-            {orte.filter((ort) => String(ort.ortId) === "1").map((ort) => (
-                <div key={ort.id} className={`grid-container ${season}-bg`}>
-                    {/* Zugriff auf Attributes */}
-                    <div className={`grid-item text ${season}-bg`}>
-                        <h3>{ort.name}</h3>
-
-                        {/* Beschreibung rendern */}
-                        {ort.description && Array.isArray(ort.description) && (
-                            <p>
-                                {ort.description
-                                    .map((desc) => desc.children.map((child) => child.text).join(' '))
-                                    .join(' ')}
-                            </p>
-                        )}
-                    </div>
-                    <div className={`grid-item image ${season}-bg`}>
-                        {/* Bild rendern */}
-                        {ort.image && ort.image.length > 0 && (
-                            <img
-                                src={`http://localhost:1337${ort.image[0].url}`} // Zugriff auf das erste Bild im Array
-                                alt={ort.name}
-                                style={{ width: '100%', height: 'auto' }}
-                            />
-                        )}
-                    </div>
-                </div>
-            ))}
+            {console.log("season: ", season)}
+            {console.log("orte: " + orte)}
+            {orte.filter((ort) => ort.saison === season)
+                .map((ort) => renderOrt(ort))}
         </>
     )
 }

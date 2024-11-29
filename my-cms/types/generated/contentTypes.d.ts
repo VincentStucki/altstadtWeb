@@ -430,7 +430,7 @@ export interface ApiOrteOrte extends Struct.CollectionTypeSchema {
     ortId: Schema.Attribute.UID;
     publishedAt: Schema.Attribute.DateTime;
     saison: Schema.Attribute.Enumeration<
-      ['spring', 'summer', 'autumn', 'winter']
+      ['spring', 'summer', 'winter', 'autumn']
     >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
