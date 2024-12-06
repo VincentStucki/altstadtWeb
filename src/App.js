@@ -10,6 +10,7 @@ import Karte from './sections/karte.js';
 import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 import SeasonSelector from './SeasonSelector.js';
+import WeatherCalendar from './sections/weatherCalendar.js';
 
 function App() {
 
@@ -98,10 +99,7 @@ function App() {
       </section>
 
       <section className={`section ${season}-bg`}>
-        <div className={`description ${season}-bg`}>
-          <h3>Beschreibung</h3>
-          <p>Die Altstadt Winterthur bietet eine reiche Geschichte und viele Sehenswürdigkeiten, die es zu entdecken gilt.</p>
-        </div>
+        <WeatherCalendar />
 
       </section>
       <SeasonSelector season={season} setSeason={setSeason} />

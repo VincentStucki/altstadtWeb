@@ -403,3 +403,55 @@ input:checked+.slide-container .nav label {
     max-width: 600px;
     margin: 0 auto;
 }
+
+/*Weather*/
+.weather-calendar-grid {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: var(--bg-dark-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--font-dark-color);
+}
+
+.weather-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    /* 1/4 + 1/4 + 2/4 */
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.weather-item:last-child {
+    border-bottom: none;
+}
+
+.weather-date {
+    text-align: center;
+    font-weight: bold;
+    color: var(--font-dark-color);
+    font-size: 1.1em;
+}
+
+.weather-icon {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.weather-temp {
+    text-align: left;
+    font-size: 0.95em;
+    color: var(--font-dark-color);
+}
+
+.weather-temp p {
+    margin: 5px 0;
+}
