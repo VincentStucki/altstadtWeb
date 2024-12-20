@@ -8,11 +8,33 @@ import Geschichte from './sections/geschichte.js';
 import Erkundung from './sections/erkundung.js';
 import Karte from './sections/karte.js';
 import { motion } from 'framer-motion';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SeasonSelector from './SeasonSelector.js';
 import WeatherCalendar from './sections/weatherCalendar.js';
+import { fetchWeatherData } from './api/weatherApi.js'
 
 function App() {
+  const [location] = useState({ latitude: 47.5, longitude: 8.7167 }); // Winterthur
+  const [weatherData, setWeatherData] = useState(null);
+  const [atmTemp, setAtmTemp] = useState(null);
+
+  useEffect(() => {
+    // Wetterdaten laden
+    const loadWeatherData = async () => {
+      const data = await fetchWeatherData(location.latitude, location.longitude);
+      setWeatherData(data);
+    };
+    loadWeatherData();
+  }, [location]);
+
+  useEffect(() => {
+    if (weatherData) {
+      setAtmTemp(weatherData.current_weather.temperature);
+    }
+  }, [weatherData]);
+
+
+
 
   const getCurrentSeason = () => {
     const month = new Date().getMonth(); // 0 = Januar, 11 = Dezember
@@ -35,6 +57,8 @@ function App() {
           <li><a href="#video">Video</a></li>
           <li><a href="#galerie">Galerie</a></li>
           <li><a href="#karte">Karte</a></li>
+          <li><a href="#weather">{atmTemp ? `${atmTemp}°C` : 'Loading...'} </a></li>
+
         </ul>
 
       </nav>
@@ -98,8 +122,8 @@ function App() {
         </motion.div>
       </section>
 
-      <section className={`section ${season}-bg`}>
-        <WeatherCalendar />
+      <section className={`section ${season}-bg`} id="weather">
+        <WeatherCalendar season={season} />
 
       </section>
       <SeasonSelector season={season} setSeason={setSeason} />

@@ -1,5 +1,6 @@
 :root {
     /* Frühling */
+
     --spring-bg: #e0ffe6;
     /* Frisches Grün für Hintergrund */
     --spring-font-dark: #3b5323;
@@ -10,6 +11,9 @@
     /* Lebendiges Grün für Buttons */
     --spring-styling: #81c784;
     /* Sanftes Grün für Akzente */
+    /*Balken*/
+    --spring-light: #81c784;
+    --spring-dark: #4caf50;
 
     /*Sommer*/
     --summer-bg: #fdffe6;
@@ -20,6 +24,9 @@
     /* Dunkles, elegantes Rot für Buttons und Navbar */
     --summer-styling: #e74c3c;
     /* Helles, warmes Rot für Akzente */
+    /*Balken*/
+    --summer-light: #e74c3c;
+    --summer-dark: #a63a3a;
 
     /*Herbst*/
     --autumn-bg: #ffedd5;
@@ -32,6 +39,9 @@
     /* Sattes, herbstliches Orange für Buttons */
     --autumn-styling: #d2691e;
     /* Warmer, erdiger Akzentton */
+    /*Balken*/
+    --autumn-light: #d2691e;
+    --autumn-dark: #b5651d;
 
     /*Winter*/
     --winter-bg: #e6f2ff;
@@ -44,6 +54,9 @@
     /* Tiefes Blau für Buttons */
     --winter-styling: #3498db;
     /* Helles Blau für Akzente */
+    /*Balken*/
+    --winter-light: #3498db;
+    --winter-dark: #2980b9;
 }
 
 .intro {
@@ -177,6 +190,27 @@ p {
     --font-dark-color: var(--winter-font-dark);
     --font-bright-color: var(--winter-font-bright);
     --styling-color: var(--winter-styling);
+}
+
+/*Balken*/
+.spring-balken {
+    --light-balken: var(--spring-light);
+    --dark-balken: var(--spring-dark);
+}
+
+.summer-balken {
+    --light-balken: var(--summer-light);
+    --dark-balken: var(--summer-dark);
+}
+
+.autumn-balken {
+    --light-balken: var(--autumn-light);
+    --dark-balken: var(--autumn-dark);
+}
+
+.winter-balken {
+    --light-balken: var(--winter-light);
+    --dark-balken: var(--winter-dark);
 }
 
 
@@ -454,4 +488,43 @@ h2 {
 
 .weather-temp p {
     margin: 5px 0;
+}
+
+/* Moderner Temperatur-Balken */
+.temp-bar {
+    position: relative;
+    width: 100%;
+    height: 12px;
+    border-radius: 6px;
+    margin: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background: linear-gradient(90deg, var(--light-balken), var(--dark-balken));
+}
+
+.temp-bar-point {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    animation: pop-in 0.3s ease-in-out;
+    border: 2px solid var(--light-balken);
+}
+
+
+/* Animation für den Punkt */
+@keyframes pop-in {
+    0% {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
 }

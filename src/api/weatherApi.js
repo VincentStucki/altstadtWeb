@@ -4,15 +4,7 @@ const BASE_URL = "https://api.open-meteo.com/v1/forecast";
 
 export const fetchWeatherData = async (latitude, longitude) => {
     try {
-        const response = await axios.get(BASE_URL, {
-            params: {
-                latitude: latitude,
-                longitude: longitude,
-                current_weather: true,
-                daily: "temperature_2m_max,temperature_2m_min,sunrise,sunset",
-                timezone: "Europe/Zurich",
-            },
-        });
+        const response = await axios.get(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,weather_code&timezone=Europe/Zurich`);
         return response.data; // Liefert tägliche Wettervorhersage
     } catch (error) {
         console.error("Fehler beim Abrufen der Wetterdaten:", error);
