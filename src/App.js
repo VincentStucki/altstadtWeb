@@ -57,7 +57,7 @@ function App() {
           <li><a href="#video">Video</a></li>
           <li><a href="#galerie">Galerie</a></li>
           <li><a href="#karte">Karte</a></li>
-          <li><a href="#weather">{atmTemp ? `${atmTemp}°C` : 'Loading...'} </a></li>
+          <li><a href="#weather" className='weather-now'>{atmTemp ? `${atmTemp}°C` : 'Loading...'} </a></li>
 
         </ul>
 
@@ -68,6 +68,7 @@ function App() {
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
+
         >
           Altstadt Winterthur
         </motion.h1>
@@ -122,9 +123,13 @@ function App() {
         </motion.div>
       </section>
 
-      <section className={`section ${season}-bg`} id="weather">
-        <WeatherCalendar season={season} />
-
+      <section className={`section ${season}-bg app-background ${season} `} id="weather">
+        <div>
+          <WeatherCalendar season={season} />
+        </div>
+      </section>
+      <section className={`section ${season}-bg`} id="footer">
+        Footer
       </section>
       <SeasonSelector season={season} setSeason={setSeason} />
     </div>

@@ -14,6 +14,7 @@
     /*Balken*/
     --spring-light: #81c784;
     --spring-dark: #4caf50;
+    --spring-footer: #cde8d6;
 
     /*Sommer*/
     --summer-bg: #fdffe6;
@@ -27,6 +28,7 @@
     /*Balken*/
     --summer-light: #e74c3c;
     --summer-dark: #a63a3a;
+    --summer-footer: #fefbd8;
 
     /*Herbst*/
     --autumn-bg: #ffedd5;
@@ -42,6 +44,7 @@
     /*Balken*/
     --autumn-light: #d2691e;
     --autumn-dark: #b5651d;
+    --autumn-footer: #ffb74d;
 
     /*Winter*/
     --winter-bg: #e6f2ff;
@@ -57,6 +60,7 @@
     /*Balken*/
     --winter-light: #3498db;
     --winter-dark: #2980b9;
+    --winter-footer: #b3e5fc;
 }
 
 .intro {
@@ -115,7 +119,7 @@ header {
 .section.dark {
     background-color: var(--bg-dark-color);
     color: var(--font-bright-color);
-    transition: background-color 0.4s ease;
+    transition: background-color 0.3s ease;
 }
 
 
@@ -166,6 +170,7 @@ p {
     --font-dark-color: var(--spring-font-dark);
     --font-bright-color: var(--spring-font-bright);
     --styling-color: var(--spring-styling);
+    --footer-color: var(--spring-footer);
 }
 
 .summer-bg {
@@ -174,6 +179,7 @@ p {
     --font-dark-color: var(--summer-font-dark);
     --font-bright-color: var(--summer-font-bright);
     --styling-color: var(--summer-styling);
+    --footer-color: var(--summer-footer);
 }
 
 .autumn-bg {
@@ -182,6 +188,7 @@ p {
     --font-dark-color: var(--autumn-font-dark);
     --font-bright-color: var(--autumn-font-bright);
     --styling-color: var(--autumn-styling);
+    --footer-color: var(--autumn-footer);
 }
 
 .winter-bg {
@@ -190,6 +197,7 @@ p {
     --font-dark-color: var(--winter-font-dark);
     --font-bright-color: var(--winter-font-bright);
     --styling-color: var(--winter-styling);
+    --footer-color: var(--winter-footer);
 }
 
 /*Balken*/
@@ -439,6 +447,37 @@ input:checked+.slide-container .nav label {
 }
 
 /*Weather*/
+/*Hintergrund*/
+/* App-Hintergrund */
+.app-background {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+
+/* Saisonabhängige Farben */
+.app-background.spring {
+    background: linear-gradient(to top, var(--spring-footer), var(--spring-bg-dark));
+}
+
+.app-background.summer {
+    background: linear-gradient(to top, var(--summer-footer), var(--summer-bg-dark));
+}
+
+.app-background.autumn {
+    background: linear-gradient(to top, var(--autumn-footer), var(--autumn-bg-dark));
+}
+
+.app-background.winter {
+    background: linear-gradient(to top, var(--winter-footer), var(--winter-bg-dark));
+}
+
+
+/*Componente*/
 .weather-calendar-grid {
     font-family: Arial, sans-serif;
     padding: 20px;
@@ -452,7 +491,7 @@ input:checked+.slide-container .nav label {
 h2 {
     text-align: center;
     margin-bottom: 20px;
-    color: var(--font-dark-color);
+    color: var(--font-bright-color);
 }
 
 .weather-item {
@@ -460,7 +499,7 @@ h2 {
     grid-template-columns: 1fr 1fr 2fr;
     /* 1/4 + 1/4 + 2/4 */
     align-items: center;
-    padding: 10px;
+    padding: 5px;
     border-bottom: 1px solid #ddd;
 }
 
@@ -471,19 +510,26 @@ h2 {
 .weather-date {
     text-align: center;
     font-weight: bold;
-    color: var(--font-dark-color);
+    color: var(--font-bright-color);
     font-size: 1.1em;
 }
 
 .weather-icon {
     text-align: center;
-    font-size: 1.5em;
+    font-size: 0.5em;
 }
+
+.weather-icon img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
 
 .weather-temp {
     text-align: left;
     font-size: 0.95em;
-    color: var(--font-dark-color);
+    color: var(--font-bright-color);
 }
 
 .weather-temp p {
@@ -491,15 +537,26 @@ h2 {
 }
 
 /* Moderner Temperatur-Balken */
+.temp-bar-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.temp-label {
+    font-size: 0.95em;
+    font-weight: bold;
+    color: var(--font-bright-color);
+}
+
 .temp-bar {
+    flex: 1;
     position: relative;
-    width: 100%;
     height: 12px;
     border-radius: 6px;
-    margin: 15px 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     background: linear-gradient(90deg, var(--light-balken), var(--dark-balken));
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .temp-bar-point {
@@ -515,6 +572,43 @@ h2 {
     border: 2px solid var(--light-balken);
 }
 
+.weather-now {
+    font-size: 0.7em;
+    font-weight: bold;
+    color: var(--font-bright-color);
+    margin-left: 4rem;
+    padding: 7px 17px;
+    border: 2px solid var(--highlight-color);
+    /* Leuchtender Rand */
+    border-radius: 12px;
+    /* Abgerundete Ecken */
+    background: rgba(0, 0, 0, 0.5);
+    /* Transparenter Hintergrund */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    /* Schattierung für den 3D-Effekt */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    /* Sanfte Übergänge */
+    display: inline-block;
+}
+
+.weather-now:hover {
+    transform: scale(1.1);
+    /* Leichtes Vergrößern bei Hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    /* Stärkere Schattierung bei Hover */
+    cursor: pointer;
+    /* Zeigt den Cursor als klickbar */
+}
+
+.weather-now::before {
+    /* Beispiel für ein Emoji, das vor der Temperatur erscheint */
+    margin-right: 10px;
+    font-size: 1em;
+    vertical-align: middle;
+    transition: transform 0.3s ease-in-out;
+}
+
+
 
 /* Animation für den Punkt */
 @keyframes pop-in {
@@ -527,4 +621,9 @@ h2 {
         transform: translate(-50%, -50%) scale(1);
         opacity: 1;
     }
+}
+
+#footer {
+    background-color: var(--footer-color);
+    transition: background-color 0.2s ease;
 }

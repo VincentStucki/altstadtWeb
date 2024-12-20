@@ -27,7 +27,7 @@ function WeatherCalendar({ season }) {
 
     return (
         <div className="weather-calendar-grid">
-            <h2>Wetterkalender</h2>
+            <h2>Wetterkalender <span className="weather-now">{weatherData.current_weather.temperature}°C</span></h2>
             {weatherData.daily.time.map((date, index) => {
                 const minTemp = weatherData.daily.temperature_2m_min[index];
                 const maxTemp = weatherData.daily.temperature_2m_max[index];
@@ -59,21 +59,24 @@ function WeatherCalendar({ season }) {
                         <div className="weather-temp">
                             {index === 0 ? (
                                 <>
-                                    <p>
-                                        Min: {minTemp}°C  <div className={`temp-bar ${season}-balken`}>
+                                    <div className="temp-bar-container">
+                                        <span className="temp-label">{minTemp}°C</span>
+                                        <div className={`temp-bar ${season}-balken`}>
                                             <div
                                                 className={`temp-bar-point ${season}-balken`}
                                                 style={{ left: `${percent}%` }}
                                             />
-                                        </div> Max: {maxTemp}°C
-                                    </p>
+                                        </div>
+                                        <span className="temp-label">{maxTemp}°C</span>
+                                    </div>
                                 </>
                             ) : (
                                 <p>
-                                    Min: {minTemp}°C | Max: {maxTemp}°C
+                                    <span className="temp-label">Min: {minTemp}°C | Max: {maxTemp}°C</span>
                                 </p>
                             )}
                         </div>
+
                     </div>
                 );
             })}
