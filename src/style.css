@@ -122,15 +122,22 @@ header {
     transition: background-color 0.3s ease;
 }
 
+p {
+    color: var(--font-bright-color);
+    max-width: 600px;
+    margin: 0 auto;
+}
 
+
+/* Allgemeine Navbar-Stile */
 .navbar {
     position: fixed;
     top: 0;
     width: 100%;
     background-color: var(--bg-dark-color);
     color: var(--font-bright-color);
-    display: flex;
-    justify-content: center;
+    display: center;
+    justify-content: space-between;
     padding: 10px 0;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     z-index: 1000;
@@ -145,6 +152,25 @@ header {
 
 .navbar li {
     margin: 0 15px;
+    cursor: pointer;
+}
+
+.navbar .nav-links {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.navbar .right-links {
+    display: flex;
+    justify-content: flex-end;
+    /* Diese Zeile sorgt für die Ausrichtung der Buttons nach rechts */
+    align-items: center;
+}
+
+.navbar .right-links li {
+    margin-left: 15px;
+    /* Abstand zwischen den Buttons */
 }
 
 .navbar a {
@@ -158,11 +184,128 @@ header {
     color: var(--styling-color);
 }
 
-p {
-    color: var(--font-bright-color);
-    max-width: 600px;
-    margin: 0 auto;
+/* Hamburger-Menü für mobile Geräte */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        display: none;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .navbar ul.active {
+        display: flex;
+    }
+
+    .navbar li {
+        margin: 10px 10px;
+    }
+
+    .navbar .right-links {
+        margin-top: 10px;
+        justify-content: flex-end;
+        /* Auf mobilen Geräten werden die Buttons nach rechts ausgerichtet */
+        width: 100%;
+    }
+
+    .hamburger-menu {
+        display: right;
+        cursor: pointer;
+    }
+
+    .hamburger-menu div {
+        width: 25px;
+        height: 3px;
+        background-color: var(--font-bright-color);
+        margin: 5px 0;
+    }
 }
+
+
+
+
+
+.event-button {
+    background: var(--bg-dark-color);
+    backface-visibility: hidden;
+    border-radius: .375rem;
+    border-style: solid;
+    border-width: .125rem;
+    box-sizing: border-box;
+    color: #212121;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Circular, Helvetica, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -.01em;
+    line-height: 1;
+    padding: .5rem 1rem;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transform: translateZ(0) scale(1);
+    transition: transform .2s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    display: flex;
+    justify-content: flex-end;
+    /* Diese Zeile sorgt für die Ausrichtung der Buttons nach rechts */
+    align-items: center;
+}
+
+.event-button:not(:disabled):hover {
+    transform: scale(1.05);
+}
+
+.event-button:not(:disabled):hover:active {
+    transform: scale(1.05) translateY(.125rem);
+}
+
+.event-button:focus {
+    outline: 0 solid transparent;
+}
+
+.event-button:focus:before {
+    content: "";
+    left: calc(-1*.375rem);
+    pointer-events: none;
+    position: absolute;
+    top: calc(-1*.375rem);
+    transition: border-radius;
+    user-select: none;
+}
+
+.event-button:focus:not(:focus-visible) {
+    outline: 0 solid transparent;
+}
+
+.event-button:focus:not(:focus-visible):before {
+    border-width: 0;
+}
+
+.event-button:not(:disabled):active {
+    transform: translateY(.125rem);
+}
+
+.btn-calendar-events {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    background-color: #ffc107;
+}
+
+.btn-calendar-events:hover {
+    background-color: #e0a800;
+}
+
 
 .spring-bg {
     --bg-color: var(--spring-bg);
@@ -449,30 +592,33 @@ input:checked+.slide-container .nav label {
 /*Weather*/
 /*Hintergrund*/
 /* App-Hintergrund */
-.app-background {
-    position: relative;
+.event-background {
     min-height: 100vh;
-    display: flex;
+    display: center;
     justify-content: center;
     align-items: center;
     overflow: hidden;
 }
 
+section .event-background h2 {
+    display: center;
+}
+
 
 /* Saisonabhängige Farben */
-.app-background.spring {
+.event-background.spring {
     background: linear-gradient(to top, var(--spring-footer), var(--spring-bg-dark));
 }
 
-.app-background.summer {
+.event-background.summer {
     background: linear-gradient(to top, var(--summer-footer), var(--summer-bg-dark));
 }
 
-.app-background.autumn {
+.event-background.autumn {
     background: linear-gradient(to top, var(--autumn-footer), var(--autumn-bg-dark));
 }
 
-.app-background.winter {
+.event-background.winter {
     background: linear-gradient(to top, var(--winter-footer), var(--winter-bg-dark));
 }
 
@@ -576,7 +722,7 @@ h2 {
     font-size: 0.7em;
     font-weight: bold;
     color: var(--font-bright-color);
-    margin-left: 4rem;
+    margin-left: 0;
     padding: 7px 17px;
     border: 2px solid var(--highlight-color);
     /* Leuchtender Rand */
@@ -622,6 +768,48 @@ h2 {
         opacity: 1;
     }
 }
+
+/* Haupt-Layout für die Karte und den Kalender */
+.weather-calendar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    /* Erlaubt das Umfließen der Elemente bei kleinen Bildschirmen */
+}
+
+/* Karte */
+.weather-calendar-container .map {
+    flex: 1;
+    min-width: 300px;
+    /* Minimale Breite für die Karte */
+    max-width: 600px;
+    margin: 0;
+}
+
+/* Wetterkalender */
+.weather-calendar-container .weather-calendar {
+    flex: 1;
+    min-width: 300px;
+    /* Minimale Breite für den Kalender */
+    max-width: 600px;
+    margin: 0;
+}
+
+/* Zentrierung der Karte und des Kalenders bei kleinen Bildschirmen */
+@media (max-width: 768px) {
+    .weather-calendar-container {
+        flex-direction: column;
+        align-items: center;
+        /* Zentriert die Karte und den Kalender */
+        gap: 40px;
+        /* Größerer Abstand zwischen den Elementen */
+    }
+}
+
 
 #footer {
     background-color: var(--footer-color);
