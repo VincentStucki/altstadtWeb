@@ -30,6 +30,7 @@ function App() {
   useEffect(() => {
     if (weatherData) {
       setAtmTemp(weatherData.current_weather.temperature);
+      console.log(atmTemp)
     }
   }, [weatherData]);
 
@@ -68,7 +69,7 @@ function App() {
                   </div>
                   <div className="right-links">
                     <li><Link to="/events" className="event-button">Events</Link></li>
-                    <li><a href="#weather" className="weather-now">{atmTemp ? `${atmTemp}°C` : 'Loading...'}</a></li>
+                    <li><ScrollLink to="karte" smooth={true} duration={500} offset={-50} className="weather-now">{`${atmTemp ?? 'Loading...'}°C`}</ScrollLink></li>
                   </div>
                 </ul>
 
@@ -96,7 +97,7 @@ function App() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5 }}
                 >
-                  <Geschichte />
+                  <Geschichte season={season} />
                 </motion.div>
               </section>
 
@@ -145,13 +146,6 @@ function App() {
                 </motion.div>
               </section>
 
-              <section className={`section ${season}-bg app-background ${season}`} id="weather">
-
-              </section>
-
-              <section className={`section ${season}-bg`} id="footer">
-                Footer
-              </section>
 
               <SeasonSelector season={season} setSeason={setSeason} />
             </div>

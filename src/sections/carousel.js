@@ -41,7 +41,7 @@ function Carousel() {
   };
 
   return (
-    <section className='section'>
+    <section className='section dark'>
       <div>
         <div className="carousel">
           <ul className="slides">

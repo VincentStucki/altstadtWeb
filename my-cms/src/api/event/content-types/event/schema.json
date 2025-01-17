@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "ortes",
+  "collectionName": "events",
   "info": {
-    "singularName": "orte",
-    "pluralName": "ortes",
-    "displayName": "Orte",
+    "singularName": "event",
+    "pluralName": "events",
+    "displayName": "Event",
     "description": ""
   },
   "options": {
@@ -12,15 +12,15 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
+    "title": {
       "type": "string"
     },
     "description": {
-      "type": "blocks"
+      "type": "text"
     },
-    "image": {
+    "picture": {
       "type": "media",
-      "multiple": true,
+      "multiple": false,
       "required": false,
       "allowedTypes": [
         "images",
@@ -29,18 +29,8 @@
         "audios"
       ]
     },
-    "saison": {
-      "type": "enumeration",
-      "enum": [
-        "spring",
-        "summer",
-        "winter",
-        "autumn",
-        "l"
-      ]
-    },
-    "ortId": {
-      "type": "uid"
+    "data": {
+      "type": "json"
     }
   }
 }

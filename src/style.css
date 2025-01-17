@@ -73,7 +73,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: var(--bg-color);
+    background-color: var(--bg-dark-color);
     margin-bottom: 0;
 
 }
@@ -83,8 +83,8 @@ body {
     padding: 0;
     height: 100%;
     font-family: 'Roboto', 'Arial', 'sans-serif';
-    background-color: var(--bg-dark-color);
-    color: var(--font-bright-color);
+    background-color: var(--bg-color);
+    color: var(--font-dark-color);
 }
 
 header {
@@ -123,7 +123,7 @@ header {
 }
 
 p {
-    color: var(--font-bright-color);
+    color: var(--font-dark-color);
     max-width: 600px;
     margin: 0 auto;
 }
@@ -377,6 +377,7 @@ p {
 .history-content .text {
     flex: 1;
     margin-right: 20px;
+    color: var(--font-dark-color)
 }
 
 .history-content .image {
@@ -415,18 +416,18 @@ p {
 
 .grid-item.text {
     text-align: center;
-    color: var(--font-dark-color);
+    color: var(--font-bright-color);
 }
 
 .grid-item.text h3 {
     margin-bottom: 10px;
-    color: var(--font-dark-color);
+    color: var(--font-bright-color);
 }
 
 .grid-item.text p {
     margin: 0;
     text-align: center;
-    color: var(--font-dark-color);
+    color: var(--font-bright-color);
 }
 
 /*Carousel code start*/
@@ -438,7 +439,7 @@ p {
 ul.slides {
     display: block;
     position: relative;
-    height: 600px;
+    height: 500px;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -486,8 +487,8 @@ ul.slides input {
     right: 0;
     z-index: 999;
     font-size: 100px;
-    line-height: 600px;
-    color: #fff;
+    line-height: 500px;
+    color: var(--bg-dark-color);
 }
 
 .carousel-controls label {
@@ -533,7 +534,7 @@ ul.slides input {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background-color: #fff;
+    background-color: var(--bg-dark-color);
     opacity: 0.5;
     margin: 10px;
 }
@@ -592,42 +593,12 @@ input:checked+.slide-container .nav label {
 /*Weather*/
 /*Hintergrund*/
 /* App-Hintergrund */
-.event-background {
-    min-height: 100vh;
-    display: center;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-
-section .event-background h2 {
-    display: center;
-}
-
-
-/* Saisonabhängige Farben */
-.event-background.spring {
-    background: linear-gradient(to top, var(--spring-footer), var(--spring-bg-dark));
-}
-
-.event-background.summer {
-    background: linear-gradient(to top, var(--summer-footer), var(--summer-bg-dark));
-}
-
-.event-background.autumn {
-    background: linear-gradient(to top, var(--autumn-footer), var(--autumn-bg-dark));
-}
-
-.event-background.winter {
-    background: linear-gradient(to top, var(--winter-footer), var(--winter-bg-dark));
-}
-
 
 /*Componente*/
 .weather-calendar-grid {
     font-family: Arial, sans-serif;
     padding: 20px;
-    max-width: 500px;
+    max-width: 400px;
     margin: 0 auto;
     background-color: var(--bg-dark-color);
     border-radius: 8px;
@@ -637,7 +608,7 @@ section .event-background h2 {
 h2 {
     text-align: center;
     margin-bottom: 20px;
-    color: var(--font-bright-color);
+    color: var(--font-dark-color);
 }
 
 .weather-item {
@@ -645,7 +616,7 @@ h2 {
     grid-template-columns: 1fr 1fr 2fr;
     /* 1/4 + 1/4 + 2/4 */
     align-items: center;
-    padding: 5px;
+    padding: 0px;
     border-bottom: 1px solid #ddd;
 }
 
@@ -814,4 +785,150 @@ h2 {
 #footer {
     background-color: var(--footer-color);
     transition: background-color 0.2s ease;
+}
+
+/*Events*/
+.event-background {
+    display: center;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.event-background h1 {
+    text-align: center;
+    font-size: 3rem;
+    color: var(--font-bright-color)
+}
+
+
+.event-background p {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--font-bright-color)
+}
+
+
+/* Saisonabhängige Farben */
+.event-background.spring {
+    background: linear-gradient(to top, var(--spring-footer), var(--spring-bg-dark));
+}
+
+.event-background.summer {
+    background: linear-gradient(to top, var(--summer-footer), var(--summer-bg-dark));
+}
+
+.event-background.autumn {
+    background: linear-gradient(to top, var(--autumn-footer), var(--autumn-bg-dark));
+}
+
+.event-background.winter {
+    background: linear-gradient(to top, var(--winter-footer), var(--winter-bg-dark));
+}
+
+.events-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    align-items: stretch;
+    /* Karten gleich hoch machen */
+    margin-top: 2rem;
+}
+
+.event-card {
+    border-radius: 1px;
+    /* Einheitliche Mindesthöhe */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+    transition: transform 0.3s;
+    display: flex;
+    /* Flexbox für Inhalte der Karte */
+    flex-direction: column;
+    /* Inhalte vertikal ausrichten */
+    justify-content: space-between;
+    /* Platz zwischen Bild und Text */
+}
+
+
+.event-card:hover {
+    box-shadow: none;
+    transform: scale(1.05);
+}
+
+.event-card:active {
+    box-shadow: none;
+}
+
+.event-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.event-card h2 {
+    font-size: 1.5rem;
+    color: #222;
+    margin: 1rem 0 0.5rem;
+    text-align: center;
+}
+
+.event-card p {
+    margin: 0.5rem 1rem;
+    font-size: 1rem;
+    color: #555;
+}
+
+.event-card p strong {
+    color: #333;
+}
+
+.event-card:last-child {
+    margin-bottom: 2rem;
+}
+
+.event-card {
+    perspective: 1000px;
+    width: 325px;
+    min-height: 425px;
+}
+
+.event-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.event-card.flipped .event-card-inner {
+    transform: rotateY(180deg);
+}
+
+.event-card-front,
+.event-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 1px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0;
+}
+
+.event-card-front {
+    background-color: #f9f9f9;
+
+}
+
+.event-card-back {
+    background-color: #fff;
+    transform: rotateY(180deg);
+    color: #333;
 }
