@@ -70,6 +70,10 @@ Eine Standaufnahme beim Eingang im Zeitrafferform
 Für die Entwicklung könnte ein Content-Management-System oder ein Framework wie Next.js genutzt werden, um eine schnelle, interaktive und benutzerfreundliche Webseite zu gestalten.
 
 
+## Starten
+1. npm i
+2. Geh zum Verzeichnis my-cms in der Konsole und starte es mit npm run develop
+3. starte mit npm start
 
 
 
